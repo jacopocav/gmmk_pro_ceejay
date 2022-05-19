@@ -21,15 +21,15 @@ The following keys are accessible by holding `FN` on all base layers:
 - `ESC`: toggle RGB
 - `~`: toggle Scroll lock
 - `TAB`: toggle Num lock
-- `Q/A`: Increase/Decrease RGB saturation
-- `W/S`: Increase/Decrease RGB brightness
-- `E/D`: Increase/Decrease RGB speed
+- `Q`/`A`: Increase/Decrease RGB saturation
+- `W`/`S`: Increase/Decrease RGB brightness
+- `E`/`D`: Increase/Decrease RGB speed
 - `N`: toggle N-key rollover
-- `LEFT/RIGHT`: change RGB hue
-- `UP/DOWN`: change RGB effect
-- `HOME/END`: Media Next/Prev track
+- `LEFT`/`RIGHT`: change RGB hue
+- `UP`/`DOWN`: change RGB effect
+- `HOME`/`END`: Media Next/Prev track
 - Encoder:
-    - `Rotate`: adjust brightness (mapped to `WIN`+`SHIFT`+`-`/`=` on Windows, native `Brightness Up`/`Brightness Up` on macOS)
+    - `Rotate`: adjust brightness (mapped to `WIN`+`SHIFT`+`-`/`=` on Windows, native `Brightness Down`/`Brightness Up` on macOS)
 
 ### System layer
 The following keys are accessible by holding `ESC` on all base layers:
