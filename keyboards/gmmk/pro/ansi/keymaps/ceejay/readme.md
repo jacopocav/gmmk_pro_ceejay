@@ -82,9 +82,9 @@ The 4 keys below the encoder are, from top to bottom:
 
 ### FN Layer
 macOS-specific keys on the FN layer are (`⇧` stands for `SHIFT`):
-- `L`: lock screen (`^⌘Q`)
-- `F12`: open screenshot app (`⌘⇧4`)
-- `DEL`: screenshot of region, saved to clipboard (`^⌘⇧5`)
+- `L`: lock screen (`^` `⌘` `Q`)
+- `F12`: open screenshot app (`⌘` `⇧` `4`)
+- `DEL`: screenshot of region, saved to clipboard (`^` `⌘` `⇧` `5`)
 - Encoder `Click`: Mute/Unmute audio output
 
 ## RGB
@@ -95,6 +95,6 @@ macOS-specific keys on the FN layer are (`⇧` stands for `SHIFT`):
     - `W` key is **red** when Windows layout is active
     - `M` key is **red** when macOS **layer 1** is active
     - `N` and `M` keys are **red** when macOS **layer 2** is active
-    - `N`, `M` and `B` keys are **red** when macOS **layer 3** is active
+    - `B`, `N` and `M` keys are **red** when macOS **layer 3** is active
     - RGB timeout is highlighted in **red** on function row (e.g. `F5` = 5 minutes, `F10` = 10 minutes).
         - When above 10 minutes, tens are highlighted on function row, units on number row (e.g. `F4`+`5` = 45 minutes)
