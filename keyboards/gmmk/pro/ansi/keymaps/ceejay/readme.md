@@ -19,8 +19,6 @@ Keys in this section are valid for all Windows and macOS base layers.
 ### FN layer
 The following keys are accessible by holding `FN` on all base layers:
 - `ESC`: toggle RGB
-- `~`: toggle Scroll lock
-- `TAB`: toggle Num lock
 - `Q`/`A`: Increase/Decrease RGB saturation
 - `W`/`S`: Increase/Decrease RGB brightness
 - `E`/`D`: Increase/Decrease RGB speed
@@ -28,36 +26,39 @@ The following keys are accessible by holding `FN` on all base layers:
 - `LEFT`/`RIGHT`: change RGB hue
 - `UP`/`DOWN`: change RGB effect
 - `HOME`/`END`: Media Next/Prev track
+- `F3`...`F11`: `F13`...`F21` keys (`F20` and `F21` are not recognized by default on macOS)
 - Encoder:
     - `Rotate`: adjust brightness (mapped to `WIN`+`SHIFT`+`-`/`=` on Windows, native `Brightness Down`/`Brightness Up` on macOS)
 
 ### System layer
 The following keys are accessible by holding `ESC` on all base layers:
-- `W`: switch base layer to Windows (saved to EEPROM)
-- `M`: cycle through macOS layers (e.g layer 1 > layer 2 > layer 3 > layer 1 > etc.) (saved to EEPROM)
 - `,`/`.`: decrease/increase RGB timeout in minutes
 - `\`: QMK `RESET` button
 - `HOME`: Wake button (probably useless, works only on macOS)
-- `PGDN`/`BREAK`: Sleep button (tap on Windows, hold on macOS)
+- `PGDN`/`PAUSE`: Sleep button (tap on Windows, hold on macOS)
 - `END`: Shutdown button (tap on Windows, hold on macOS)
 - Encoder:
     - `Rotate`: adjust RGB timeout in minutes
+
+See [Changing the base layer](#changing-the-base-layer) for how to change base layer.
 
 ## Windows
 The 4 keys below the encoder are, from top to bottom:
 - `HOME`
 - `INS` (for IntelliJ shortcuts)
-- `BREAK` (does nothing, can be mapped to mute/unmute on Discord)
+- `PAUSE` (does nothing, can be mapped to mute/unmute on Discord)
 - `END`
 
 ### FN Layer
 Windows-specific keys on the FN layer are:
+- `~`: toggle Scroll lock
+- `TAB`: toggle Num lock
 - `WIN`: toggle Win lock
 - `L`: lock screen (WIN+L)
 - `F12`: open calculator
 - `DEL`: Print Screen (can be mapped to Snipping Tool on OS settings)
 - `INS`: Page Up
-- `BREAK`: Page Down
+- `PAUSE`: Page Down
 - Encoder `Click`: Media Stop
  
 ## macOS
@@ -87,8 +88,35 @@ macOS-specific keys on the FN layer are (`⇧` stands for `SHIFT`):
 - `DEL`: screenshot of region, saved to clipboard (`^` `⌘` `⇧` `5`)
 - Encoder `Click`: Mute/Unmute audio output
 
+## Changing the base layer
+Base layers can be changed on the System layer (hold `ESC`).
+
+Layers can be changed **temporarily** or **permanently**:
+- A **temporary** change is lost when the keyboard is disconnected, loses power or is reset. The keyboard will default to the last base layer that was saved to EEPROM.
+- A **permanent** change is saved to EEPROM and is kept even after disconnection, power loss and a reset (unless the EEPROM is also reset).
+
+### Switch to Windows layer
+- Press `ESC`+`W` to **temporarily** switch to the Windows base layer.
+- Press `ESC`+`SHIFT`+`W` to **permanently** switch to the Windows base layer.
+  - Both Left and Right `SHIFT` are supported for this combination.
+
+### Switch to macOS layers
+- Press `ESC`+`M` to **temporarily** switch to the "next" macOS base layer.
+- Press `ESC`+`SHIFT`+`M` to **permanently** switch to the "next" macOS base layer.
+  - Both Left and Right `SHIFT` are supported for this combination.
+
+The "next" macOS layer is determined depending on the current base layer:
+
+| Current layer | Next macOS layer |
+|---------------|------------------|
+| Windows       | Layer 1          |
+| Layer 1       | Layer 2          |
+| Layer 2       | Layer 3          |
+| Layer 3       | Layer 1          |
+
+
 ## RGB
-- Caps/Num/Scroll/Win lock are highlighted in **red** when active on left-side LEDs.
+- Num/Scroll/Win lock (only Windows) and Caps Lock (both OSs) are highlighted in **red** when active on left-side LEDs.
 - `FN` layer is highlighted in **red** when active on right-side LEDs
 - Mapped keys in `FN`/System layers are highlighted in white
 - System layer:

@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FNWIN] = LAYOUT(
-        RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_CALC, KC_PSCR,           KC_MSTP,
+        RGB_TOG, _______, _______,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21, KC_CALC, KC_PSCR,           KC_MSTP,
         KC_SLCK, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_MNXT,
         KC_NLCK, RGB_SAI, RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_PGUP,
         _______, RGB_SAD, RGB_VAD, RGB_SPD, _______, _______, _______, _______, _______, LOK_WIN, _______, _______,          _______,           KC_PGDN,
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_FNMAC] = LAYOUT(
-        RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, SCR_APP, SCR_SEL,           KC_MUTE,
+        RGB_TOG, _______, _______,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20,  KC_F21, SCR_APP, SCR_SEL,           KC_MUTE,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_MNXT,
         _______, RGB_SAI, RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______,
         _______, RGB_SAD, RGB_VAD, RGB_SPD, _______, _______, _______, _______, _______, LOK_MAC, _______, _______,          _______,           _______,
@@ -204,6 +204,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         rgb_matrix_set_color(LED_RIGHT, r, g, b);
         rgb_matrix_set_color(LED_END, r, g, b);
         rgb_matrix_set_color(LED_HOME, r, g, b);
+
+        // F13..F21
+        rgb_matrix_set_color(LED_F3, r, g, b);
+        rgb_matrix_set_color(LED_F4, r, g, b);
+        rgb_matrix_set_color(LED_F5, r, g, b);
+        rgb_matrix_set_color(LED_F6, r, g, b);
+        rgb_matrix_set_color(LED_F7, r, g, b);
+        rgb_matrix_set_color(LED_F8, r, g, b);
+        rgb_matrix_set_color(LED_F9, r, g, b);
+        rgb_matrix_set_color(LED_F10, r, g, b);
+        rgb_matrix_set_color(LED_F11, r, g, b);
     }
     #endif
 

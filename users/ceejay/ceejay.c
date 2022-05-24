@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "ceejay.h"
 
+#define LAYER_STATE(layer) ((layer_state_t)1 << layer)
 
 #ifdef TD_LSFT_CAPSLOCK_ENABLE
   // Tap once for shift, twice for Caps Lock but only if Win Key in not disabled
@@ -164,6 +165,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false; 
     }
 
+    uint8_t mods_state = get_mods();
+    bool shift_pressed = (mods_state & MOD_BIT(KC_LSFT)) || (mods_state & MOD_BIT(KC_RSFT));
+
     switch (keycode) {
         case KC_00:
             if (record->event.pressed) {
@@ -204,14 +208,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif // IDLE_TIMEOUT_ENABLE
         case LAY_WIN:
             if(record->event.pressed) {
-                set_single_persistent_default_layer(_WIN);
+                if (shift_pressed) {
+                    set_single_persistent_default_layer(_WIN);
+                } else {
+                    default_layer_set(LAYER_STATE(_WIN));
+                }
             } else {
                 unregister_code16(keycode);
             }
             break;
         case LAY_MAC:
             if(record->event.pressed) {
-                set_single_persistent_default_layer(next_mac_layer());
+                if (shift_pressed) {
+                    set_single_persistent_default_layer(next_mac_layer());
+                } else {
+                    default_layer_set(LAYER_STATE(next_mac_layer()));
+                }
             } else {
                 unregister_code16(keycode);
             }
