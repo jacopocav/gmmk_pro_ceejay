@@ -87,3 +87,7 @@ enum custom_user_keycodes {
 void activate_numlock(bool turn_on);
 
 bool is_default_layer(uint8_t layer);
+
+bool is_macos_layer(void);
+
+bool is_windows_layer(void);

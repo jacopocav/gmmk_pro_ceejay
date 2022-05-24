@@ -81,8 +81,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FNMAC] = LAYOUT(
         RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, SCR_APP, SCR_SEL,           KC_MUTE,
-        KC_SLCK, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_MNXT,
-        KC_NLCK, RGB_SAI, RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           KC_MNXT,
+        _______, RGB_SAI, RGB_VAI, RGB_SPI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______,
         _______, RGB_SAD, RGB_VAD, RGB_SPD, _______, _______, _______, _______, _______, LOK_MAC, _______, _______,          _______,           _______,
         _______,          _______, _______, _______, _______, _______, NK_TOGG, _______, _______, _______, _______,          _______, RGB_MOD,  KC_MPRV,
         _______, _______, _______,                            _______,                            _______, _______, _______, RGB_HUD, RGB_RMOD, RGB_HUI
@@ -225,21 +225,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // Capslock, Scroll lock and Numlock  indicator on Left side lights.
     void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-        if (IS_HOST_LED_ON(USB_LED_SCROLL_LOCK)) {
+        if (is_windows_layer() && IS_HOST_LED_ON(USB_LED_SCROLL_LOCK)) {
             rgb_matrix_set_color(LED_L1, RGB_LOCK);
             rgb_matrix_set_color(LED_L2, RGB_LOCK);
         }
-        if (!IS_HOST_LED_ON(USB_LED_NUM_LOCK)) {   // on if NUM lock is OFF
+        if (is_windows_layer() && !IS_HOST_LED_ON(USB_LED_NUM_LOCK)) {   // on if NUM lock is OFF
             rgb_matrix_set_color(LED_L3, RGB_LOCK);
             rgb_matrix_set_color(LED_L4, RGB_LOCK);
         }
         if (IS_HOST_LED_ON(USB_LED_CAPS_LOCK)) {
+            if (is_macos_layer()) {
+                rgb_matrix_set_color(LED_L1, RGB_LOCK);
+                rgb_matrix_set_color(LED_L2, RGB_LOCK);
+                rgb_matrix_set_color(LED_L3, RGB_LOCK);
+                rgb_matrix_set_color(LED_L4, RGB_LOCK);
+            }
             rgb_matrix_set_color(LED_L5, RGB_LOCK);
             rgb_matrix_set_color(LED_L6, RGB_LOCK);
             rgb_matrix_set_color(LED_L7, RGB_LOCK);
             rgb_matrix_set_color(LED_L8, RGB_LOCK);
         }
-        if (keymap_config.no_gui) {
+        if (is_windows_layer() && keymap_config.no_gui) {
             rgb_matrix_set_color(LED_LWIN, RGB_LOCK);  //light up Win key when disabled
         }
         switch(get_highest_layer(layer_state)) {

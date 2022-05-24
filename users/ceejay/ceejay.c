@@ -256,3 +256,13 @@ void keyboard_post_init_user(void) {
 bool is_default_layer(uint8_t layer) {
     return biton32(default_layer_state) == layer;
 }
+
+bool is_macos_layer(void) {
+    return is_default_layer(_MAC1)
+        || is_default_layer(_MAC2)
+        || is_default_layer(_MAC3);
+}
+
+bool is_windows_layer(void) {
+    return is_default_layer(_WIN);
+}
