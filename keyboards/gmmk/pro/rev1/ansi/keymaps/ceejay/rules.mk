@@ -1,12 +1,19 @@
-#VIA_ENABLE = yes
-MOUSEKEY_ENABLE = yes
-TAP_DANCE_ENABLE = no
-BOOTMAGIC_ENABLE = no # Enable Bootmagic Lite
+# Enable additional features.
 
-TD_LSFT_CAPSLOCK_ENABLE = no
-IDLE_TIMEOUT_ENABLE = yes
-STARTUP_NUMLOCK_ON = yes
-ENCODER_DEFAULTACTIONS_ENABLE = yes
+# Disabling MouseKey because it breaks my KVM switch
+MOUSEKEY_ENABLE = no
 
-DEBOUNCE_TYPE = sym_defer_pk
-DEBOUNCE = 20
+# Ensure sym_defer_g is used.
+# It seems sym_defer_pk results in significant chattering, even with an 8ms debounce time.
+DEBOUNCE_TYPE = sym_defer_g
+
+# Useful for debugging
+# CONSOLE_ENABLE = yes
+# DEBUG_MATRIX_SCAN_RATE_ENABLE = yes
+# DEBUG_MATRIX_SCAN_RATE = yes
+
+# Encoder Map support
+ENCODER_MAP_ENABLE = yes
+
+# Enables VIA
+VIA_ENABLE = yes
